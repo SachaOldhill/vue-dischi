@@ -2,7 +2,17 @@ function initVue(){
   new Vue({
     el:'#app',
     data:{
-
+     arrayData:[],
+     textInput:'',
+    },
+    computed: {
+      filteredGenre: function(){
+        return this.arrayData.filter(data => {
+          // const result = data.genre.toLowerCase().includes(this.searchText.toLowerCase());
+          const result = data.genre.toLowerCase().includes(this.textInput.toLowerCase());
+          return result;
+        } );
+      }
     },
     methods:{
 
@@ -10,15 +20,12 @@ function initVue(){
     mounted() {
       axios.get("https://flynn.boolean.careers/exercises/api/array/music", {
         params:{
-          poster: "https://images-na.ssl-images-amazon.com/images/I/81r3FVfNG3L._SY355_.jpg",
-          title: "And Justice for All",
-          author: "Metallica",
-          genre: "Metal",
-          year: "1988"
+
         }
       })
       .then(data => {
-
+        this.arrayData = data.data.response;
+       console.log(this.arrayData);
       })
       .catch(() => console.log('error'));
     },

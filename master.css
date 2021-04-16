@@ -3,9 +3,32 @@
   padding: 0;
   box-sizing: border-box;
 }
-.my_container{
-  height: 100vh;
+body{
   background-color: rgb(108, 80, 184);
   color: black;
+}
+.my_container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
+}
+h3{
+  padding: 15px 0;
+}
+input{
+  height: 30px;
+  padding: 5px;
+  margin: 10px;
+}
+.my_album{
+  width: calc(100% / 5 - 15px);
+  margin-left: 15px;
+  margin-top: 20px;
+}
+.my_poster img{
+  height: 150px;
+  border-radius: 4px;
+  padding: 10px 0;
 }
